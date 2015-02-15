@@ -31,8 +31,8 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 		player1 = new TestCharacter(100, 100);
 		player2 = new TestCharacter(400, 400);
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
-		//setFocusable(true);
-		//requestFocusInWindow();
+		// setFocusable(true);
+		// requestFocusInWindow();
 		setBackground(Color.BLACK);
 		InputAdapter ia = new InputAdapter(this, player1, player2);
 		addMouseListener(ia);
@@ -66,11 +66,9 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 		long startTime;
 		long elapsedTime;
 		long wait;
-
 		while (!quit) {
 			if (!pause) {
-				startTime = System.nanoTime(); // Time at start to control
-												// framerate
+				startTime = System.nanoTime(); // Time at start to control framerate
 				/* UPDATE */
 				player1.update();
 				player2.update();
@@ -78,18 +76,8 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 				repaint();
 				// TODO Convert timing method to use Swing timer instead of
 				// delay()
-				elapsedTime = System.nanoTime() - startTime; // Time at end
-																// minus time at
-																// start to get
-																// difference
-				wait = targetTime - elapsedTime / (long) (Math.pow(10, 9)); // wait
-																			// to
-																			// reach
-																			// 60fps,
-																			// nanoTime/billion
-																			// to
-																			// convert
-																			// units
+				elapsedTime = System.nanoTime() - startTime; 
+				wait = targetTime - elapsedTime / ((long) (Math.pow(10, 9))); 
 				delay((int) wait);
 			}
 		}

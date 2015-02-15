@@ -73,8 +73,9 @@ public class SpriteManager {
 	 * BufferedImage, which can be used directly in g.drawImage
 	 */ 
 	public BufferedImage currentFrame(){
-		int u = animQueue.get(0) % columns;
 		int v = animQueue.get(0) / columns;
+		int u = animQueue.get(0) % columns;
+		
 		return spriteSheet.getSubimage(u*spriteWidth, v*spriteHeight, spriteWidth, spriteHeight);
 	}
 
