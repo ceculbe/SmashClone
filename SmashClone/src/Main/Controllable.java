@@ -19,7 +19,7 @@ public interface Controllable {
 	 * values corresponding to the keys currently being pressed. They are in
 	 * the order (up, down,left, right, a-button, b-button)
 	 * the inputChange method should simply modify some internal state variables
-	 * to record key state - let update() do any real actions
+	 * to record key state - let update() do any real actions.
 	 */
 	public void inputChange(boolean[] keys);
 	
