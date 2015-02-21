@@ -3,8 +3,6 @@ package edu.ilstu.uhigh.smashclone;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
@@ -14,13 +12,8 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 	public static final int HEIGHT = 240;
 	public static final int WIDTH = 320;
 	public static final int SCALE = 2;
-	// game thread
-	private Thread thread;
-	private boolean running;
-	private int FPS = 60;
-	private long targetTime = 1000 / FPS;
-	// image field
-	private BufferedImage image;
+	private final int FPS = 60;
+	private final long targetTime = 1000 / FPS;
 	boolean pause, quit;
 	Controllable player1, player2;
 
@@ -35,16 +28,6 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 		InputAdapter ia = new InputAdapter(this, player1, player2);
 		addMouseListener(ia);
 		addKeyListener(ia);
-	}
-
-	/**
-	 * addNotify: For thread action
-	 */
-	public void addNotify() {
-		super.addNotify();
-		if (thread == null)
-			thread = new Thread((Runnable) this);
-		thread.start();
 	}
 
 	public void paintComponent(Graphics g) {
