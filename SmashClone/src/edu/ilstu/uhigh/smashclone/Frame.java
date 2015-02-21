@@ -1,4 +1,4 @@
-package Main;
+package edu.ilstu.uhigh.smashclone;
 import javax.swing.JFrame;
 
 public class Frame {

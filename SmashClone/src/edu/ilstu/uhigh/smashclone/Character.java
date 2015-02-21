@@ -1,4 +1,4 @@
-package Main;
+package edu.ilstu.uhigh.smashclone;
 
 import java.awt.Graphics;
 

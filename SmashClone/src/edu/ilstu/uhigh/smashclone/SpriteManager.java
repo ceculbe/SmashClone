@@ -1,4 +1,4 @@
-package Main;
+package edu.ilstu.uhigh.smashclone;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ public class SpriteManager {
 	public SpriteManager(String file, int w, int h) {
 		animQueue = new ArrayList<Integer>();
 		try {
-			spriteSheet = ImageIO.read(new File("res/"+file));
+			spriteSheet = ImageIO.read(getClass().getResource("/resources/"+file));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
