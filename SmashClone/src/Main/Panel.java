@@ -31,8 +31,6 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 		player1 = new TestCharacter(100, 100);
 		player2 = new TestCharacter(400, 400);
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
-		// setFocusable(true);
-		// requestFocusInWindow();
 		setBackground(Color.BLACK);
 		InputAdapter ia = new InputAdapter(this, player1, player2);
 		addMouseListener(ia);
