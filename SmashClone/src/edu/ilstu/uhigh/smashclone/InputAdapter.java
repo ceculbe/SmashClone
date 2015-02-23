@@ -33,6 +33,11 @@ public class InputAdapter implements MouseListener, KeyListener {
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
+		setInput(e, true);
+		
+		//Took off all of this code to provide a more efficient method (hopefully)
+		
+		/*
 		if (e.getKeyCode() == KeyEvent.VK_W) keys1[0] = true;
 		if (e.getKeyCode() == KeyEvent.VK_S) keys1[1] = true;
 		if (e.getKeyCode() == KeyEvent.VK_A) keys1[2] = true;
@@ -41,12 +46,18 @@ public class InputAdapter implements MouseListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_L) keys2[1] = true;
 		if (e.getKeyCode() == KeyEvent.VK_K) keys2[2] = true;
 		if (e.getKeyCode() == KeyEvent.VK_SEMICOLON) keys2[3] = true;
+		
 		//TODO add button A and B keys
 		dispatchEvents();
+		*/
 	}
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
+		setInput(e, false);
+		
+		
+		/*
 		if (e.getKeyCode() == KeyEvent.VK_W) keys1[0] = false;
 		if (e.getKeyCode() == KeyEvent.VK_S) keys1[1] = false;
 		if (e.getKeyCode() == KeyEvent.VK_A) keys1[2] = false;
@@ -57,8 +68,39 @@ public class InputAdapter implements MouseListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_SEMICOLON) keys2[3] = false;
 		//TODO add button A and B keys
 		dispatchEvents();
+		*/
 	}
-
+	public void setInput(KeyEvent e, boolean pressed){
+		System.out.println(pressed);
+		switch(e.getKeyCode()){
+		case KeyEvent.VK_W:
+			keys1[0] = pressed;
+			break;
+		case KeyEvent.VK_S:
+			keys1[1] = pressed;
+			break;
+		case KeyEvent.VK_A:
+			keys1[2] = pressed;
+			break;
+		case KeyEvent.VK_D:
+			keys1[3] = pressed;
+			break;
+		case KeyEvent.VK_O:
+			keys2[0] = pressed;
+			break;
+		case KeyEvent.VK_L:
+			keys2[1] = pressed;
+			break;
+		case KeyEvent.VK_K:
+			keys2[2] = pressed;
+			break; 
+		case KeyEvent.VK_SEMICOLON:
+			keys2[3] = pressed;
+			break;
+		}
+		dispatchEvents();
+	}
+	
 	@Override
 	public void keyTyped(KeyEvent e) {
 		if (e.getKeyChar() == 'Q' || e.getKeyChar() == 'q')
