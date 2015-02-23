@@ -23,7 +23,8 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 	private BufferedImage image;
 	boolean pause, quit;
 	Controllable player1, player2;
-
+	//control
+	private ControlManager control;
 	public Panel() {
 		// super();
 		pause = false;

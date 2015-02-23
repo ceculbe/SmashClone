@@ -23,11 +23,16 @@ public class ControlManager {
 	public static final int MENUSTATE = 0;
 	public static final int GAMESTATE = 1;
 	
+	//staes
+	protected State S_menu;
+	protected State S_game;
 	//Control constructor
 	public ControlManager(){
 		states = new ArrayList<State>();
-		states.add(MENUSTATE, new MenuState());
-		states.add(GAMESTATE, new GameState());
+		S_menu = new MenuState();
+		S_game = new GameState();
+		states.add(MENUSTATE, S_menu);
+		states.add(GAMESTATE, S_game);
 		currentState = MENUSTATE;
 		
 	}
@@ -49,4 +54,6 @@ public class ControlManager {
 	public void update(){
 		states.get(currentState).update();
 	}
+	
+	//TODO Handle transporting inputs from inputadapter->panel->CTRLMANAGER(here)->state
 }
