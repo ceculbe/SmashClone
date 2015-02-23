@@ -3,10 +3,13 @@ package edu.ilstu.uhigh.smashclone;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class Panel extends JPanel implements ScreenInterface, Runnable {
+public class Panel extends JPanel implements ScreenInterface, KeyListener  {
 	// declare fields here
 	// dimensions
 	public static final int HEIGHT = 240;
@@ -18,10 +21,12 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 	Controllable player1, player2;
 	//control
 	private ControlManager control;
+	
 	public Panel() {
 		// super();
 		pause = false;
 		quit = false;
+		control = new ControlManager();
 		player1 = new TestCharacter(100, 100);
 		player2 = new TestCharacter(400, 400);
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -29,6 +34,7 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 		InputAdapter ia = new InputAdapter(this, player1, player2);
 		addMouseListener(ia);
 		addKeyListener(ia);
+		addKeyListener((KeyListener) this);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -82,5 +88,24 @@ public class Panel extends JPanel implements ScreenInterface, Runnable {
 	public void quit() {
 		quit = true;
 	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		control.keyPressed(e.getKeyCode());
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		control.keyReleased(e.getKeyCode());
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 }

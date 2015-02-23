@@ -57,6 +57,7 @@ public class GeneralMenu implements Menu {
 	}
 	public void keyPressed(int k){
 		//OVERRIDE THIS, BUT HERE IS A SIMPLE TEMPLATE
+		System.out.println("IN GENERALMENU");
 		switch(k){
 		case KeyEvent.VK_ENTER:
 			//Do Something 

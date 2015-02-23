@@ -21,7 +21,9 @@ public class MenuState extends State {
 	//constructor
 	public MenuState(){
 		super();
-		
+		menus = new ArrayList<Menu>();
+		menus.add(GENERALMENU, new GeneralMenu());
+		currentMenu = GENERALMENU;
 	}
 	//This method will be called when changing between menus
 	public void setScreen(int menuIndex){

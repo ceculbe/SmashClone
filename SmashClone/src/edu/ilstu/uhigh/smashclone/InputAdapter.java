@@ -71,7 +71,6 @@ public class InputAdapter implements MouseListener, KeyListener {
 		*/
 	}
 	public void setInput(KeyEvent e, boolean pressed){
-		System.out.println(pressed);
 		switch(e.getKeyCode()){
 		case KeyEvent.VK_W:
 			keys1[0] = pressed;
