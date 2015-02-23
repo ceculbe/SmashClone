@@ -21,4 +21,12 @@ public class State {
 	public void update(){
 		
 	}
+	
+	public void keyPressed(int k){
+		
+	}
+	
+	public void keyReleased(int k){
+	
+	}
 }

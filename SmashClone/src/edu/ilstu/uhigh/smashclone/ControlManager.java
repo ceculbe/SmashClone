@@ -55,5 +55,15 @@ public class ControlManager {
 		states.get(currentState).update();
 	}
 	
+	
+	//KEY INPUT (Not configured with "inputadapter" yet)
+	public void keyPressed(int k){
+		states.get(currentState).keyPressed(k);
+	}
+	
+	public void keyReleased(int k){
+		states.get(currentState).keyReleased(k);
+	}
+	
 	//TODO Handle transporting inputs from inputadapter->panel->CTRLMANAGER(here)->state
 }

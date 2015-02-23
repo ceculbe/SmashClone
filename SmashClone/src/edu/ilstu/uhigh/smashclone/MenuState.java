@@ -1,25 +1,45 @@
 package edu.ilstu.uhigh.smashclone;
 
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class MenuState extends State {
 	//instance variables
-	private ArrayList<Screen> screens;
+	private ArrayList<Menu> menus;
 	
-	public static final int GENSCREEN = 0;
-	public static final int OPTIONSCREEN = 1;
-	public static final int PLAYERSCREEN = 2;
-	public static final int MAPSCREEN = 3;
-	public static final int FINALSCREEN = 4;
+	//current screen index
+	protected int currentMenu = 0;
+	
+	//index of each type of screen
+	public static final int GENERALMENU = 0;
+	public static final int OPTIONMENU = 1;
+	public static final int PLAYERMENU = 2;
+	public static final int MAPMENU = 3;
+	public static final int FINALMENU = 4;
 	
 	//constructor
 	public MenuState(){
 		super();
 		
 	}
-	
-	public void setScreen(int screenIndex){
-	
+	//This method will be called when changing between menus
+	public void setScreen(int menuIndex){
+		currentMenu = menuIndex;
+		menus.get(currentMenu).init();
 	}
 	
+	public void draw(Graphics g){
+		menus.get(currentMenu).draw(g);
+	}
+	public void update(){
+		menus.get(currentMenu).update();
+	}
+	
+	public void keyPressed(int k){
+		menus.get(currentMenu).keyPressed(k);
+	}
+	public void keyReleased(int k){
+		menus.get(currentMenu).keyReleased(k);
+	}
 }
