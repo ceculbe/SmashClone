@@ -26,7 +26,7 @@ public class MenuState extends State {
 		currentMenu = GENERALMENU;
 	}
 	//This method will be called when changing between menus
-	public void setScreen(int menuIndex){
+	public void setMenu(int menuIndex){
 		currentMenu = menuIndex;
 		menus.get(currentMenu).init();
 	}
