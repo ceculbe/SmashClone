@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-public class MenuState extends State {
+public class MenuState implements State {
 	//instance variables
 	private ArrayList<Menu> menus;
 	
@@ -20,8 +20,11 @@ public class MenuState extends State {
 	
 	//constructor
 	public MenuState(){
-		super();
-		
+	
+	}
+
+	public void init() {
+	//TODO
 	}
 	//This method will be called when changing between menus
 	public void setScreen(int menuIndex){
@@ -42,4 +45,5 @@ public class MenuState extends State {
 	public void keyReleased(int k){
 		menus.get(currentMenu).keyReleased(k);
 	}
+
 }
