@@ -28,7 +28,7 @@ public class Panel extends JPanel implements ScreenInterface, KeyListener  {
 		quit = false;
 		control = new ControlManager();
 		player1 = new TestCharacter(100, 100);
-		player2 = new TestCharacter(400, 400);
+		player2 = new  TestCharacter(400, 400);
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setBackground(Color.BLACK);
 		InputAdapter ia = new InputAdapter(this, player1, player2);
