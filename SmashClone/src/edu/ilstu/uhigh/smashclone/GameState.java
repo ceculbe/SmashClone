@@ -1,43 +1,67 @@
 package edu.ilstu.uhigh.smashclone;
 
 import java.awt.Graphics;
+import java.awt.event.KeyListener;
 
-public class GameState implements State {
-	//instance variables
+public class GameState implements State, ScreenInterface {
+	// instance variables
+	boolean pause, quit;
+	Controllable player1, player2;
+
+	// constructor
+	public GameState() {
 	
-	
-	//constructor
-	public GameState(){
-		
 	}
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
-		
+		pause = false;
+		quit = false;
+		player1 = new TestCharacter(100, 100);
+		player2 = new TestCharacter(400, 400);
+		InputAdapter ia = new InputAdapter(this, player1, player2);
+
 	}
+
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
-		
+		player1.paint(g);
+		player2.paint(g);
 	}
 
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-		
+		if (!quit && !pause) {
+			player1.update();
+			player2.update();
+		}
 	}
 
 	@Override
 	public void keyPressed(int k) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyReleased(int k) {
 		// TODO Auto-generated method stub
+
+	}
+
+	public void pause() {
+		pause = !pause;
+	}
+
+	@Override
+	public void quit() {
+		// TODO Auto-generated method stub
 		
 	}
+
+	//So what is the quit variable used for?
+	//Exiting the state or exiting the game completely?
+	
 }
