@@ -30,7 +30,6 @@ public class ControlManager {
 		states.add(MENUSTATE, new MenuState());
 		states.add(GAMESTATE, new GameState());
 		currentState = MENUSTATE;
-		
 	}
 	
 	//Transitions between state

@@ -7,11 +7,12 @@ import java.awt.event.KeyListener;
 public class GameState implements State, ScreenInterface {
 	// instance variables
 	boolean pause, quit;
-	Controllable player1, player2;
+	Controllable player1, player2; //Two Player MAX
 
 	// constructor
 	public GameState() {
-	
+		super();
+		init();
 	}
 
 	@Override
@@ -50,7 +51,8 @@ public class GameState implements State, ScreenInterface {
 
 	@Override
 	public void keyPressed(KeyEvent k) {
-		// TODO Auto-generated method stub
+		player1.sendKeyInput(k);
+		player2.sendKeyInput(k);
 		
 	}
 

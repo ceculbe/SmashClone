@@ -15,6 +15,7 @@ public class GeneralMenu implements Menu {
 	private static final int STARTINDEX = 0;
 	private static final int OPTIONSINDEX = 1;
 	private static final int EXITINDEX = 2;
+	private static final int GAMESTATE = 3;
 	
 	private BufferedImage background;
 	private Color titleColor;
@@ -28,6 +29,7 @@ public class GeneralMenu implements Menu {
 		options.add(STARTINDEX, "START");
 		options.add(OPTIONSINDEX, "OPTIONS");
 		options.add(EXITINDEX, "EXIT");
+		options.add(GAMESTATE, "GAMESTATE");
 	
 		
 		textSpace = 50;
@@ -64,9 +66,9 @@ public class GeneralMenu implements Menu {
 		} else if (currentChoice == 1){ //OPTIONS
 			//do something
 		} else if (currentChoice == 2){ //EXIT
-			//do something
-			//example, if this option was to exit the game
-			//call System.exit(0);
+			System.exit(0);
+		}else if(currentChoice == 3){
+			
 		}
 	}
 	public void keyPressed(KeyEvent k){
@@ -77,11 +79,11 @@ public class GeneralMenu implements Menu {
 			select(currentChoice);
 			break;
 		case KeyEvent.VK_UP:
+			//TODO:Didn't know how to implement this with modulos
 			currentChoice= (currentChoice <=0) ? options.size()-1 : currentChoice-1;
-			
 			break;
 		case KeyEvent.VK_DOWN:
-			currentChoice= (currentChoice+1)%3;
+			currentChoice= (currentChoice+1)%options.size();
 			break;
 		//No default unless stating an exception
 		}

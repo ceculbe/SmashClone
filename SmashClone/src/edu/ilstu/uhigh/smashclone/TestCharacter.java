@@ -3,6 +3,7 @@ package edu.ilstu.uhigh.smashclone;
 
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 public class TestCharacter implements Controllable{
 
@@ -50,7 +51,38 @@ public class TestCharacter implements Controllable{
 		}
 	}
 
-	@Override
+	public void sendKeyInput(KeyEvent k){
+		
+	}
+
+	public void setInput(KeyEvent e, boolean pressed){
+			switch(e.getKeyCode()){
+			case KeyEvent.VK_W:
+				keys1[0] = pressed;
+				break;
+			case KeyEvent.VK_S:
+				keys1[1] = pressed;
+				break;
+			case KeyEvent.VK_A:
+				keys1[2] = pressed;
+				break;
+			case KeyEvent.VK_D:
+				keys1[3] = pressed;
+				break;
+			case KeyEvent.VK_O:
+				keys2[0] = pressed;
+				break;
+			case KeyEvent.VK_L:
+				keys2[1] = pressed;
+				break;
+			case KeyEvent.VK_K:
+				keys2[2] = pressed;
+				break; 
+			case KeyEvent.VK_SEMICOLON:
+				keys2[3] = pressed;
+				break;
+		}
+	}
 	public void inputChange(boolean[] keys) {
 		up = keys[0];
 		down = keys[1];
