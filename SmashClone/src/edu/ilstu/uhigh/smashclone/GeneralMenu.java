@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import edu.ilstu.uhigh.smashclone.Panel;
+import edu.ilstu.uhigh.smashclone.ControlManager;
 public class GeneralMenu implements Menu {
 
 	protected int currentChoice = 0;
@@ -67,8 +68,8 @@ public class GeneralMenu implements Menu {
 			//do something
 		} else if (currentChoice == 2){ //EXIT
 			System.exit(0);
-		}else if(currentChoice == 3){
-			
+		}else if(currentChoice == 3){ //CHANGEGAMESTATE
+			Panel.control.setState();
 		}
 	}
 	public void keyPressed(KeyEvent k){
