@@ -1,6 +1,7 @@
 package edu.ilstu.uhigh.smashclone;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class GameState implements State, ScreenInterface {
@@ -37,24 +38,24 @@ public class GameState implements State, ScreenInterface {
 		}
 	}
 
-	@Override
-	public void keyPressed(int k) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyReleased(int k) {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void pause() {
 		pause = !pause;
 	}
 
 	@Override
 	public void quit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent k) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent k) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,6 +1,7 @@
 package edu.ilstu.uhigh.smashclone;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 //Main control hub
@@ -15,7 +16,6 @@ public class ControlManager {
 
 	//List contains all pre-made states
 	private ArrayList<State> states;
-	
 	//Current state index that the control is operating on
 	protected int currentState;
 	
@@ -53,11 +53,12 @@ public class ControlManager {
 	
 	
 	//KEY INPUT (Not configured with "inputadapter" yet)
-	public void keyPressed(int k){
+	public void keyPressed(KeyEvent k){
+		System.out.println("WOrked");
 		states.get(currentState).keyPressed(k);
 	}
 	
-	public void keyReleased(int k){
+	public void keyReleased(KeyEvent k){
 		states.get(currentState).keyReleased(k);
 	}
 	
