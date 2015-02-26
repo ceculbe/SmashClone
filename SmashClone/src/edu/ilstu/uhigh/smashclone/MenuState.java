@@ -20,14 +20,16 @@ public class MenuState implements State {
 	
 	//constructor
 	public MenuState(){
-	
+		super();
 	}
 
 	public void init() {
-	//TODO
+		menus = new ArrayList<Menu>();
+		menus.add(GENERALMENU, new GeneralMenu());
+		currentMenu = GENERALMENU;
 	}
 	//This method will be called when changing between menus
-	public void setScreen(int menuIndex){
+	public void setMenu(int menuIndex){
 		currentMenu = menuIndex;
 		menus.get(currentMenu).init();
 	}

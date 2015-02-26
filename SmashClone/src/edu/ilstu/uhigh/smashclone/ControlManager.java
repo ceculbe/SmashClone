@@ -23,16 +23,12 @@ public class ControlManager {
 	public static final int MENUSTATE = 0;
 	public static final int GAMESTATE = 1;
 	
-	//staes
-	protected State S_menu;
-	protected State S_game;
+
 	//Control constructor
 	public ControlManager(){
 		states = new ArrayList<State>();
-		S_menu = new MenuState();
-		S_game = new GameState();
-		states.add(MENUSTATE, S_menu);
-		states.add(GAMESTATE, S_game);
+		states.add(MENUSTATE, new MenuState());
+		states.add(GAMESTATE, new GameState());
 		currentState = MENUSTATE;
 		
 	}

@@ -3,7 +3,7 @@ package edu.ilstu.uhigh.smashclone;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JPanel;
 
@@ -21,11 +21,12 @@ public class Panel extends JPanel  {
 	//Controllable player1, player2;
 	//control
 	private ControlManager control;
+	
 	public Panel() {
 		// super();
-		/*
-		pause = false;
 		
+		control = new ControlManager();
+		/*
 		player1 = new TestCharacter(100, 100);
 		player2 = new TestCharacter(400, 400);
 		*/
@@ -33,9 +34,8 @@ public class Panel extends JPanel  {
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setBackground(Color.BLACK);
 		//InputAdapter ia = new InputAdapter(this, player1, player2);
-		//addMouseListener(ia);
-		addKeyListener((KeyListener) this);
-	}
+		//addMouseListener(ia);	
+		}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -90,10 +90,23 @@ public class Panel extends JPanel  {
 		pause = !pause;
 	}
 
-	*/
+	
 	public void quit() {
 		quit = true;
 	}
+	*/
+
+	public void keyPressed(KeyEvent e) {
+		control.keyPressed(e.getKeyCode());
+		
+	}
+
+	public void keyReleased(KeyEvent e) {
+		control.keyReleased(e.getKeyCode());
+		
+	}
+
+
 	
 
 }
