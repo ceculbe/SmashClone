@@ -23,4 +23,6 @@ public interface Controllable {
 	 */
 	public void inputChange(boolean[] keys);
 	
+	public int getKeymapSize();
+	
 }

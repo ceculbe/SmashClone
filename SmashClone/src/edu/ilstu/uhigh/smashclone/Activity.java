@@ -1,6 +1,7 @@
 package edu.ilstu.uhigh.smashclone;
 
 import java.awt.Graphics;
+import java.util.List;
 
 public abstract class Activity {
 	
@@ -14,4 +15,6 @@ public abstract class Activity {
 	
 	public abstract void end();
 	
+	public abstract void inputChange(boolean[] keys);
+
 }

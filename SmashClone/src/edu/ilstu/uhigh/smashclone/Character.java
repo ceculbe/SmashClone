@@ -3,7 +3,7 @@ package edu.ilstu.uhigh.smashclone;
 import java.awt.Graphics;
 
 public class Character implements Controllable {
-	//INSTANCE VARIABLES
+	final int KEYMAP_SIZE = 6;
 	int xPos, yPos;
 	int speed;
 	SpriteManager sprite;
@@ -13,22 +13,21 @@ public class Character implements Controllable {
 	//Up and down may be taken off since 2D game
 	boolean up, down, left, right, buttonA, buttonB; 
 	
-	//Defined in specific characters based on spritesheet
-	final int[] walkDown = null;
-	final int[] walkUp = null;
-	final int[] walkLeft = null;
-	final int[] walkRight = null;
+	//Defined in specific characters based on sprite sheet
+	final int[] walkDown = {0,1,2,3,4,5};
+	final int[] walkUp = {24,25,26,27,28,29};
+	final int[] walkLeft = {12,13,14,15,16,17};
+	final int[] walkRight = {36,37,38,39,40,41,42};
 	
-	public Character(int x, int y, SpriteManager sprite){
+	public Character(int x, int y){
 		this.xPos = x;
 		this.yPos = y;
 		speed = 5;
-		this.sprite = sprite;
-		
+		sprite = new SpriteManager("GoblinWalk.png",126,170);
 	}
+	
 	@Override
 	public void paint(Graphics g) {
-		// TODO Auto-generated method stub
 		g.drawImage(sprite.currentFrame(), xPos,yPos,null);
 	}
 
@@ -52,7 +51,7 @@ public class Character implements Controllable {
 		if(right){
 			xPos += speed; 
 			sprite.animate(walkRight);
-		}
+		}	
 	}
 
 	@Override
@@ -63,7 +62,10 @@ public class Character implements Controllable {
 		right = keys[3];
 		buttonA = keys[4];
 		buttonB = keys[5];
-		
+	}
+	
+	public int getKeymapSize(){
+		return KEYMAP_SIZE;
 	}
 
 }

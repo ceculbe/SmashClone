@@ -1,7 +1,9 @@
 package edu.ilstu.uhigh.smashclone;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.imageio.ImageIO;
 
 /*
@@ -15,7 +17,7 @@ import javax.imageio.ImageIO;
  */
 public class SpriteManager {
 
-	BufferedImage spriteSheet;
+	private BufferedImage spriteSheet;
 	int spriteWidth;
 	int spriteHeight;
 	final int BUFFER_LIMIT = 2;
@@ -29,6 +31,7 @@ public class SpriteManager {
 	 */
 	public SpriteManager(String file, int w, int h) {
 		animQueue = new ArrayList<Integer>();
+		spriteSheet = new BufferedImage(640,480,6);
 		try {
 			spriteSheet = ImageIO.read(getClass().getResource("/resources/"+file));
 		} catch (IOException e) {

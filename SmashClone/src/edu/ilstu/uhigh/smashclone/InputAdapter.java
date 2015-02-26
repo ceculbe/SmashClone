@@ -14,11 +14,11 @@ import java.awt.event.MouseListener;
  */
 public class InputAdapter implements MouseListener, KeyListener {
 
-	ControlManager cm;
+	SmashController cm;
 	boolean[] keys;
 	
-	public InputAdapter(ControlManager ctrlMan) {
-		cm = ctrlMan;
+	public InputAdapter(SmashController controller) {
+		cm = controller;
 		keys = new boolean[20];
 	}
 
