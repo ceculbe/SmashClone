@@ -14,47 +14,42 @@ import java.awt.event.MouseListener;
  */
 public class InputAdapter implements MouseListener, KeyListener {
 
-	ScreenInterface screen;
-	Controllable p1, p2;
-	boolean[] keys1, keys2;
+	ControlManager cm;
+	boolean[] keys;
 	
-	public InputAdapter(ScreenInterface si, Controllable c1, Controllable c2) {
-		screen = si;
-		p1 = c1;
-		p2 = c2;
-		keys1 = new boolean[6];
-		keys2 = new boolean[6];
+	public InputAdapter(ControlManager ctrlMan) {
+		cm = ctrlMan;
+		keys = new boolean[20];
 	}
 
 	public void dispatchEvents() {
-		p1.inputChange(keys1);
-		p2.inputChange(keys2);
+		cm.inputChange(keys);
 	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_W) keys1[0] = true;
-		if (e.getKeyCode() == KeyEvent.VK_S) keys1[1] = true;
-		if (e.getKeyCode() == KeyEvent.VK_A) keys1[2] = true;
-		if (e.getKeyCode() == KeyEvent.VK_D) keys1[3] = true;
-		if (e.getKeyCode() == KeyEvent.VK_O) keys2[0] = true;
-		if (e.getKeyCode() == KeyEvent.VK_L) keys2[1] = true;
-		if (e.getKeyCode() == KeyEvent.VK_K) keys2[2] = true;
-		if (e.getKeyCode() == KeyEvent.VK_SEMICOLON) keys2[3] = true;
+		if (e.getKeyCode() == KeyEvent.VK_W) keys[0] = true;
+		if (e.getKeyCode() == KeyEvent.VK_S) keys[1] = true;
+		if (e.getKeyCode() == KeyEvent.VK_A) keys[2] = true;
+		if (e.getKeyCode() == KeyEvent.VK_D) keys[3] = true;
+		if (e.getKeyCode() == KeyEvent.VK_O) keys[4] = true;
+		if (e.getKeyCode() == KeyEvent.VK_L) keys[5] = true;
+		if (e.getKeyCode() == KeyEvent.VK_K) keys[6] = true;
+		if (e.getKeyCode() == KeyEvent.VK_SEMICOLON) keys[7] = true;
 		//TODO add button A and B keys
 		dispatchEvents();
 	}
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_W) keys1[0] = false;
-		if (e.getKeyCode() == KeyEvent.VK_S) keys1[1] = false;
-		if (e.getKeyCode() == KeyEvent.VK_A) keys1[2] = false;
-		if (e.getKeyCode() == KeyEvent.VK_D) keys1[3] = false;
-		if (e.getKeyCode() == KeyEvent.VK_O) keys2[0] = false;
-		if (e.getKeyCode() == KeyEvent.VK_L) keys2[1] = false;
-		if (e.getKeyCode() == KeyEvent.VK_K) keys2[2] = false;
-		if (e.getKeyCode() == KeyEvent.VK_SEMICOLON) keys2[3] = false;
+		if (e.getKeyCode() == KeyEvent.VK_W) keys[0] = false;
+		if (e.getKeyCode() == KeyEvent.VK_S) keys[1] = false;
+		if (e.getKeyCode() == KeyEvent.VK_A) keys[2] = false;
+		if (e.getKeyCode() == KeyEvent.VK_D) keys[3] = false;
+		if (e.getKeyCode() == KeyEvent.VK_O) keys[4] = false;
+		if (e.getKeyCode() == KeyEvent.VK_L) keys[5] = false;
+		if (e.getKeyCode() == KeyEvent.VK_K) keys[6] = false;
+		if (e.getKeyCode() == KeyEvent.VK_SEMICOLON) keys[7] = false;
 		//TODO add button A and B keys
 		dispatchEvents();
 	}
@@ -62,9 +57,9 @@ public class InputAdapter implements MouseListener, KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		if (e.getKeyChar() == 'Q' || e.getKeyChar() == 'q')
-			screen.quit();
+			keys[0] = true;
 		if (e.getKeyChar() == 'P' || e.getKeyChar() == 'p')
-			screen.pause();
+			keys[1] = true;
 	}
 
 	@Override
