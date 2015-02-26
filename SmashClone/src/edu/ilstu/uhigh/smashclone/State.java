@@ -1,6 +1,7 @@
 package edu.ilstu.uhigh.smashclone;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 public interface State {
 	//instance variables
@@ -17,11 +18,11 @@ public interface State {
 	public void update();
 		
 	
-	public void keyPressed(int k);
+	public void keyPressed(KeyEvent k);
 		
 	
 	
-	public void keyReleased(int k);
+	public void keyReleased(KeyEvent k);
 	
 	
 }

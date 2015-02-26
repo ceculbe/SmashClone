@@ -42,10 +42,10 @@ public class MenuState implements State {
 		menus.get(currentMenu).update();
 	}
 	
-	public void keyPressed(int k){
+	public void keyPressed(KeyEvent k){
 		menus.get(currentMenu).keyPressed(k);
 	}
-	public void keyReleased(int k){
+	public void keyReleased(KeyEvent k){
 		menus.get(currentMenu).keyReleased(k);
 	}
 

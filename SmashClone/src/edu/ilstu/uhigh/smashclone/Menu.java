@@ -1,6 +1,7 @@
 package edu.ilstu.uhigh.smashclone;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 //Menu interface
 public interface Menu {
@@ -16,13 +17,13 @@ public interface Menu {
 	public void draw(Graphics g);
 	
 	//selected any options and transporting any data or other changes...
-	public void select();
+	public void select(int index);
 	
 	//Input handling may change//
 	
-	public void keyPressed(int k);
+	public void keyPressed(KeyEvent k);
 	
-	public void keyReleased(int k);
+	public void keyReleased(KeyEvent k);
 	
 	//
 }

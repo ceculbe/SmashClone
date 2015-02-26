@@ -21,7 +21,7 @@ public class Panel extends JPanel  {
 	//Controllable player1, player2;
 	//control
 	private ControlManager control;
-	
+	private InputAdapter ia;
 	public Panel() {
 		// super();
 		
@@ -33,8 +33,9 @@ public class Panel extends JPanel  {
 		running = true;
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setBackground(Color.BLACK);
-		//InputAdapter ia = new InputAdapter(this, player1, player2);
-		//addMouseListener(ia);	
+		ia =new InputAdapter(control);
+		addMouseListener(ia);	
+		addKeyListener(ia);
 		}
 
 	public void paintComponent(Graphics g) {
@@ -96,15 +97,7 @@ public class Panel extends JPanel  {
 	}
 	*/
 
-	public void keyPressed(KeyEvent e) {
-		control.keyPressed(e.getKeyCode());
-		
-	}
 
-	public void keyReleased(KeyEvent e) {
-		control.keyReleased(e.getKeyCode());
-		
-	}
 
 
 	

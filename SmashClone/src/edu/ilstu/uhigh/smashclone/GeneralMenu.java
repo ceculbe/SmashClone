@@ -6,15 +6,15 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-
+import edu.ilstu.uhigh.smashclone.Panel;
 public class GeneralMenu implements Menu {
 
 	protected int currentChoice = 0;
 	protected ArrayList<String> options;
 	
 	private static final int STARTINDEX = 0;
-	private static final int OPTIONSINDEX = 0;
-	private static final int EXITINDEX = 0;
+	private static final int OPTIONSINDEX = 1;
+	private static final int EXITINDEX = 2;
 	
 	private BufferedImage background;
 	private Color titleColor;
@@ -28,7 +28,9 @@ public class GeneralMenu implements Menu {
 		options.add(STARTINDEX, "START");
 		options.add(OPTIONSINDEX, "OPTIONS");
 		options.add(EXITINDEX, "EXIT");
-		textSpace = 15;
+	
+		
+		textSpace = 50;
 	}
 	
 	public void init(){
@@ -50,38 +52,41 @@ public class GeneralMenu implements Menu {
 			} else {
 				g.setColor(Color.WHITE);
 			}
-			g.drawString(options.get(i),145,140+(i*-textSpace));
+
+			g.drawString(options.get(i),Panel.WIDTH/2,Panel.HEIGHT*(3/2)+(i*textSpace));
 		}
 	}
-	public void select(){
+	public void select(int currentChoice){
 		//OVERRIDE THIS, BUT HERE IS A SIMPLE TEMPLATE
-		if(currentChoice == 0){
+		System.out.println(options.get(currentChoice));
+		if(currentChoice == 0){ //START
 			//do something
-		} else if (currentChoice == 1){
+		} else if (currentChoice == 1){ //OPTIONS
 			//do something
-		} else if (currentChoice == 2){
+		} else if (currentChoice == 2){ //EXIT
 			//do something
 			//example, if this option was to exit the game
 			//call System.exit(0);
 		}
 	}
-	public void keyPressed(int k){
+	public void keyPressed(KeyEvent k){
 		//OVERRIDE THIS, BUT HERE IS A SIMPLE TEMPLATE
 		System.out.println("IN GENERALMENU");
-		switch(k){
+		switch(k.getKeyCode()){
 		case KeyEvent.VK_ENTER:
-			//Do Something 
+			select(currentChoice);
 			break;
 		case KeyEvent.VK_UP:
-			currentChoice= currentChoice+1%2;
+			currentChoice= (currentChoice <=0) ? options.size()-1 : currentChoice-1;
+			
 			break;
 		case KeyEvent.VK_DOWN:
-			currentChoice= currentChoice-1%2;
+			currentChoice= (currentChoice+1)%3;
 			break;
 		//No default unless stating an exception
 		}
 	}
-	public void keyReleased(int k){
+	public void keyReleased(KeyEvent k){
 		
 	}
 	
