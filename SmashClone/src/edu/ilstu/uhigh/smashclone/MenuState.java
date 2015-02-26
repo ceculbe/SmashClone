@@ -21,6 +21,7 @@ public class MenuState implements State {
 	//constructor
 	public MenuState(){
 		super();
+		init();
 	}
 
 	public void init() {
