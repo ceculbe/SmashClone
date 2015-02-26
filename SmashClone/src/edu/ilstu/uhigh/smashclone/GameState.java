@@ -19,8 +19,6 @@ public class GameState implements State, ScreenInterface {
 		quit = false;
 		player1 = new TestCharacter(100, 100);
 		player2 = new TestCharacter(400, 400);
-		InputAdapter ia = new InputAdapter(this, player1, player2);
-
 	}
 
 
