@@ -20,7 +20,7 @@ public class Panel extends JPanel  {
 	//boolean pause, quit;
 	//Controllable player1, player2;
 	//control
-	protected ControlManager control;
+	protected static ControlManager control;
 	private InputAdapter ia;
 	public Panel() {
 		// super();

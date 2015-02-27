@@ -61,7 +61,6 @@ public class GeneralMenu implements Menu {
 	}
 	public void select(int currentChoice){
 		//OVERRIDE THIS, BUT HERE IS A SIMPLE TEMPLATE
-		System.out.println(options.get(currentChoice));
 		if(currentChoice == 0){ //START
 			//do something
 		} else if (currentChoice == 1){ //OPTIONS
@@ -69,12 +68,11 @@ public class GeneralMenu implements Menu {
 		} else if (currentChoice == 2){ //EXIT
 			System.exit(0);
 		}else if(currentChoice == 3){ //CHANGEGAMESTATE
-			Panel.control.setState();
+			Panel.control.setState(Panel.control.GAMESTATE);
 		}
 	}
 	public void keyPressed(KeyEvent k){
 		//OVERRIDE THIS, BUT HERE IS A SIMPLE TEMPLATE
-		System.out.println("IN GENERALMENU");
 		switch(k.getKeyCode()){
 		case KeyEvent.VK_ENTER:
 			select(currentChoice);

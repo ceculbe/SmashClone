@@ -37,7 +37,6 @@ public class ControlManager {
 	public void setState(int stateIndex){
 		//Refer to state instance constants above//
 		currentState = stateIndex;
-		states.get(currentState).init();
 	}
 	
 	//Called from panel to draw the current state
@@ -53,7 +52,6 @@ public class ControlManager {
 	
 	//KEY INPUT (Not configured with "inputadapter" yet)
 	public void keyPressed(KeyEvent k){
-		System.out.println("WOrked");
 		states.get(currentState).keyPressed(k);
 	}
 	

@@ -1,5 +1,6 @@
 package edu.ilstu.uhigh.smashclone;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 /* Controllable defines an interface for character objects
  * to be controlled by the game engine
@@ -8,7 +9,7 @@ public interface Controllable {
 	/* paint is called once per frame
 	 * paint is handed the whole graphics screen to draw on - don't mess it up!
 	 */
-	public void paint(Graphics g);
+	public void draw(Graphics g);
 	/* update is called once per frame
 	 * it should update character state and exit
 	 * as quickly as possible.
@@ -21,6 +22,7 @@ public interface Controllable {
 	 * the inputChange method should simply modify some internal state variables
 	 * to record key state - let update() do any real actions.
 	 */
-	public void inputChange(boolean[] keys);
+	
+	public void sendKeyInput(KeyEvent k, boolean pressed);
 	
 }

@@ -7,8 +7,9 @@ import java.awt.event.KeyListener;
 public class GameState implements State, ScreenInterface {
 	// instance variables
 	boolean pause, quit;
-	Controllable player1, player2; //Two Player MAX
-
+	KeyProcessor allInputs[]; //Make sure the index corresponds to the player index
+	public static final int MAXPLAYERS = 2;
+	Controllable players[];
 	// constructor
 	public GameState() {
 		super();
@@ -17,25 +18,37 @@ public class GameState implements State, ScreenInterface {
 
 	@Override
 	public void init() {
+		//Create ScreenInterface
 		pause = false;
 		quit = false;
-		player1 = new TestCharacter(100, 100);
-		player2 = new TestCharacter(400, 400);
+		
+		//Create KeyInputs
+		allInputs = new KeyProcessor[MAXPLAYERS];
+		allInputs[0] = new PlayerOneKeys();
+		allInputs[1] = new PlayerTwoKeys();
+		
+		//Create Players
+		players = new Controllable[MAXPLAYERS];
+		
+		players[0] = new TestCharacter(100, 100, allInputs[0]);
+		players[1] = new TestCharacter(500, 100, allInputs[1]);
 	}
 
 
 	@Override
 	public void draw(Graphics g) {
-		player1.paint(g);
-		player2.paint(g);
+		for(Controllable c: players){
+			c.draw(g);
+		}
 	}
 
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
 		if (!quit && !pause) {
-			player1.update();
-			player2.update();
+			for(Controllable c : players){
+				c.update();
+			}
 		}
 	}
 
@@ -51,14 +64,18 @@ public class GameState implements State, ScreenInterface {
 
 	@Override
 	public void keyPressed(KeyEvent k) {
-		player1.sendKeyInput(k);
-		player2.sendKeyInput(k);
+		for(Controllable c: players){
+			c.sendKeyInput(k, true);
+		}
+		
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent k) {
-		// TODO Auto-generated method stub
+		for(Controllable c: players){
+			c.sendKeyInput(k, false);
+		}
 		
 	}
 
