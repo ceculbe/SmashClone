@@ -9,7 +9,7 @@ public class PlayerOneKeys extends KeyProcessor {
 	public PlayerOneKeys(){
 		super(createAlternates());
 	}
-
+	//Use this constructor if your character input layout is different
 	public PlayerOneKeys(int[] keys){
 		super(keys);
 	}

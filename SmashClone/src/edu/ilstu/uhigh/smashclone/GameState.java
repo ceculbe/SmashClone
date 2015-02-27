@@ -24,12 +24,13 @@ public class GameState implements State, ScreenInterface {
 		
 		//Create KeyInputs
 		allInputs = new KeyProcessor[MAXPLAYERS];
+		
 		allInputs[0] = new PlayerOneKeys();
 		allInputs[1] = new PlayerTwoKeys();
 		
 		//Create Players
 		players = new Controllable[MAXPLAYERS];
-		
+	
 		players[0] = new TestCharacter(100, 100, allInputs[0]);
 		players[1] = new TestCharacter(500, 100, allInputs[1]);
 	}

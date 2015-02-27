@@ -1,4 +1,5 @@
 package edu.ilstu.uhigh.smashclone;
+
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
@@ -6,23 +7,29 @@ import java.awt.event.KeyEvent;
  * to be controlled by the game engine
  */
 public interface Controllable {
-	/* paint is called once per frame
-	 * paint is handed the whole graphics screen to draw on - don't mess it up!
+
+	//
+	//
+	/*
+	 * draw is called once per frame draw is handed the whole graphics screen to
+	 * draw on - don't mess it up!
 	 */
 	public void draw(Graphics g);
-	/* update is called once per frame
-	 * it should update character state and exit
+
+	//
+	//
+	/*
+	 * update is called once per frame it should update character state and exit
 	 * as quickly as possible.
 	 */
-	public void update();	
-	/* inputChange is called whenever one of this character's control keys
-	 * are pressed or released. The boolean array "keys" will consist of six
-	 * values corresponding to the keys currently being pressed. They are in
-	 * the order (up, down,left, right, a-button, b-button)
-	 * the inputChange method should simply modify some internal state variables
-	 * to record key state - let update() do any real actions.
+	public void update();
+
+	//
+	//
+	/*
+	 * sendKeyInput is called to provide an input value to the Controllable
+	 * object since the "controllable" must be "controlled" :)
 	 */
-	
 	public void sendKeyInput(KeyEvent k, boolean pressed);
-	
+
 }

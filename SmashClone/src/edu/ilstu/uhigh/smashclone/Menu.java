@@ -3,27 +3,29 @@ package edu.ilstu.uhigh.smashclone;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
-//Menu interface
+/* Menu Interface:
+ * Specifies which methods a menu should have
+ */
 public interface Menu {
-	
-	//Initiated the menu
+
+	// Initiate the menu
 	public void init();
-	
-	//Update and information within the menu
+
+	// Update and information within the menu
 	public void update();
-	
-	//Draw whatever is on the menu such as text, images, players, etc
-	//This is where the design comes into play
+
+	// Draw whatever is on the menu such as text, images, players, etc
+	// This is where the design comes into play
 	public void draw(Graphics g);
-	
-	//selected any options and transporting any data or other changes...
+
+	// Select any options and transporting any data or other changes...
 	public void select(int index);
-	
-	//Input handling may change//
-	
+
+	// Method to receive keyPressed inputs
 	public void keyPressed(KeyEvent k);
-	
+
+	// Method to receive keyReleased inputs
 	public void keyReleased(KeyEvent k);
-	
-	//
+
+	// TODO: Add mouse input methods if needed
 }

@@ -4,60 +4,69 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-//Main control hub
-
-/*
- * Handles Gamestates
- * 
- */
-
-//TODO Create states
+//
 public class ControlManager {
 
-	//List contains all pre-made states
+	// List contains all the states within the game
 	private ArrayList<State> states;
-	//Current state index that the control is operating on
+	//
+	//
+	// Current state index that the control is operating on
 	protected int currentState;
-	
-	//State indexes
+	//
+	//
+	// State indexes
 	public static final int MENUSTATE = 0;
 	public static final int GAMESTATE = 1;
-	
 
-	//Control constructor
-	public ControlManager(){
+	// Control constructor: Initializes list, states, and sets the current state
+	public ControlManager() {
 		states = new ArrayList<State>();
 		states.add(MENUSTATE, new MenuState());
 		states.add(GAMESTATE, new GameState());
 		currentState = MENUSTATE;
 	}
-	
-	//Transitions between state
-	//TODO Handle transporting date between states Ex: character and map selection from menu
-	public void setState(int stateIndex){
-		//Refer to state instance constants above//
+
+	// setState()
+	// PRECONDITION: Provide the preferred index of the state to change to
+	// POSTCONDITION: Sets the current state to the preferred state
+	public void setState(int stateIndex) {
+		// Set the currentState index to the preferred state index
+		// Refer to the index instances above
 		currentState = stateIndex;
 	}
-	
-	//Called from panel to draw the current state
-	public void draw(Graphics g){
+
+	// draw()
+	// PRECONDITION: Provide a graphics and have a working draw method in the
+	// states
+	// POSTCONDITION: Pass the graphics to the current state's draw method,
+	// which the real drawing will be handled down there. Method called from
+	// panel
+	public void draw(Graphics g) {
 		states.get(currentState).draw(g);
 	}
-	
-	//Update all information within the state
-	public void update(){
+
+	// update()
+	// PRECONDITION: Have a working update method in the state classes
+	// POSTCONDITION: Call the current state's update method. This method is
+	// called from the panel's main game loop
+	public void update() {
 		states.get(currentState).update();
 	}
-	
-	
-	//KEY INPUT (Not configured with "inputadapter" yet)
-	public void keyPressed(KeyEvent k){
+
+	// keyPressed()
+	// PRECONDITION: Provide a KeyEvent (from the InputAdapter class)
+	// POSTCONDITION: Send the key input to the current state
+	public void keyPressed(KeyEvent k) {
 		states.get(currentState).keyPressed(k);
 	}
 	
-	public void keyReleased(KeyEvent k){
+	// keyReleased()
+	// PRECONDITION: Provide a KeyEvent (from the InputAdapter class)
+	// POSTCONDITION: Send the key input to the current state
+	public void keyReleased(KeyEvent k) {
 		states.get(currentState).keyReleased(k);
 	}
-	
-	//TODO Handle transporting inputs from inputadapter->panel->CTRLMANAGER(here)->state
+
+	//TODO: Handle passing mouse inputs (if needed in the future)
 }
